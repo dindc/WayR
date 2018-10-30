@@ -144,9 +144,13 @@ public class RootObject
 public class Manager : MonoBehaviour
 {
 
-    public TextMesh text;
+    public TextMesh departures;
+    public TextMesh trains;
+    public TextMesh destinations;
     public string remoteUri = "http://transport.opendata.ch/v1/stationboard?station=Zurich&limit=10/stationboard.json";
-    private string line = "";
+    private string lineDepartures = "";
+    private string lineTrains = "";
+    private string lineDestinations = "";
     private string json = "";
 
     private void Start()
@@ -164,7 +168,9 @@ public class Manager : MonoBehaviour
             RootObject stationBoard = new RootObject();
             stationBoard = JsonConvert.DeserializeObject<RootObject>(json);
 
-            string[] lines = { };
+            string[] linesDepartures = { };
+            string[] linesTrains = { };
+            string[] linesDestinations = { };
 
             foreach (var board in stationBoard.stationboard)
             {
@@ -172,20 +178,28 @@ public class Manager : MonoBehaviour
                 string train = board.name.PadRight(20, ' ');
                 string destination = board.to;
 
-                string[] info = { departure, train, destination };
+                Array.Resize(ref linesDepartures, linesDepartures.Length + 1);
+                Array.Resize(ref linesTrains, linesDepartures.Length + 1);
+                Array.Resize(ref linesDestinations, linesDepartures.Length + 1);
 
-                Array.Resize(ref lines, lines.Length + 1);
-                lines[lines.Length - 1] = string.Join("", info);
+                linesDepartures[linesDepartures.Length - 1] = departure;
+                linesTrains[linesTrains.Length - 1] = train;
+                linesDestinations[linesDestinations.Length - 1] = destination;
             }
 
-            line = string.Join("\r\n", lines);
+            lineDepartures = string.Join("\r\n", linesDepartures);
+            lineTrains = string.Join("\r\n", linesTrains);
+            lineDestinations = string.Join("\r\n", linesDestinations);
+
             yield return new WaitForSeconds(10);
         }
     }
 
     void Update()
     {
-        text.text = line;
+        departures.text = lineDepartures.Trim();
+        trains.text = lineTrains.Trim();
+        destinations.text = lineDestinations.Trim();
     }
 
 }
