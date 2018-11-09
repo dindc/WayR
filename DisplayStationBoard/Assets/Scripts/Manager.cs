@@ -143,9 +143,11 @@ public class RootObject
 
 public class Manager : MonoBehaviour
 {
-    public string remoteUri = "http://transport.opendata.ch/v1/stationboard?station=Zurich&limit=10/stationboard.json";
+    public static string departureStation = "Zurich";
+    public string remoteUri = String.Format("http://transport.opendata.ch/v1/stationboard?station={0}&limit=10/stationboard.json", departureStation);
     private string json = "";
-    public Button[] buttonlist = new Button[10];
+    public static int n = 10;
+    public static Stationboard[] destinations = new Stationboard[n];
 
     private void Start()
     {
@@ -174,7 +176,9 @@ public class Manager : MonoBehaviour
                 string output = string.Join("\t", arr);
 
                 i++;
-                buttonlist[i].GetComponentInChildren<Text>().text = output;
+                //buttonlist[i].GetComponentInChildren<Text>().text = output;
+                Instantiation.buttonlist[i].GetComponentInChildren<Text>().text = output;
+                destinations[i] = board;
             }
             yield return new WaitForSeconds(10);
         }
