@@ -1,0 +1,13 @@
+/[Aa]pp/
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+
+/App/
+/SampleResources/
+
+
+*.csproj
+*.unityproj
+*.sln
+
