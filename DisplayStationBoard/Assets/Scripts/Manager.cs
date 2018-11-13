@@ -146,6 +146,7 @@ public class Manager : MonoBehaviour
     public static string departureStation = "Zurich";
     public string remoteUri = String.Format("http://transport.opendata.ch/v1/stationboard?station={0}&limit=10/stationboard.json", departureStation);
     private string json = "";
+    public static bool gettext = true;
     public static int n = 10;
     public static Stationboard[] destinations = new Stationboard[n];
 
@@ -164,23 +165,22 @@ public class Manager : MonoBehaviour
             RootObject stationBoard = new RootObject();
             stationBoard = JsonConvert.DeserializeObject<RootObject>(json);
 
-            int i = -1;
-
-            foreach (var board in stationBoard.stationboard)
+            if (gettext)
             {
-                string spacing = "  ";
-                string departure = board.stop.departure.ToString("t").PadRight(15, ' ');
-                //string train = board.name.PadRight(20, ' ');
-                string destination = board.to;
-                string[] arr = { spacing, departure, destination };
-                string output = string.Join("\t", arr);
-
-                i++;
-                //buttonlist[i].GetComponentInChildren<Text>().text = output;
-                Instantiation.buttonlist[i].GetComponentInChildren<Text>().text = output;
-                destinations[i] = board;
-            }
-            yield return new WaitForSeconds(10);
+                for (int i = 0; i < n; i++)
+                {
+                    string departure = stationBoard.stationboard[i].stop.departure.ToString("t").PadRight(15, ' ');
+                    string platform = stationBoard.stationboard[i].stop.platform;
+                    string destination = stationBoard.stationboard[i].to;
+                    string[] arr = { departure, destination };
+                    string output = string.Join("\t", arr);
+                         
+                    Instantiation.buttonlist[i].GetComponentInChildren<Text>().text = string.Format("  {0}", output);
+                    Instantiation.buttonlist[i].transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}  ", platform);
+                    destinations[i] = stationBoard.stationboard[i];
+                }
+                yield return new WaitForSeconds(10);
+            }   
         }
     }
 }

@@ -13,12 +13,10 @@ public class Instantiation : MonoBehaviour {
     public static GameObject[] stoplist = new GameObject[0];
 
     void Start () {
-        if (stoplist.Length != 0)
+
+        foreach (var button in stoplist)
         {
-            for (int j = 0; j < stoplist.Length; j++)
-            {
-                Destroy(stoplist[j]);
-            }
+            Destroy(button);
         }
 
         for (int i = 0; i < Manager.n; i++) 
@@ -27,18 +25,25 @@ public class Instantiation : MonoBehaviour {
             button.name = string.Format("{0}", i);
             button.transform.SetParent(buttonPannel.transform);
             button.GetComponent<Button>().onClick.AddListener(OnClick);
-            button.transform.GetChild(0).GetComponent<Text>().text = "Default";
+
+            button.transform.GetChild(0).GetComponent<Text>().text = "";
             button.transform.GetChild(0).GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+
+            Text clone = Instantiate(button.transform.GetChild(0).GetComponent<Text>(), button.transform);
+            clone.alignment = TextAnchor.MiddleRight;
+
             buttonlist[i] = button;
         }
+
+        
     }
 
 
 	void OnClick ()
-    { 
-        for (int i = 0; i < Manager.n; i++)
+    {
+        foreach (var button in buttonlist)
         {
-            Destroy(buttonlist[i]);
+            Destroy(button);
         }
 
         int num = Int32.Parse(EventSystem.current.currentSelectedGameObject.name);
@@ -47,9 +52,11 @@ public class Instantiation : MonoBehaviour {
         int size = requested.passList.Count;
         stoplist = new GameObject[size + 1];
 
-        for (int i = 0; i < size; i++)
+        for (int k = 0; k < size; k++)
         {
-            string name = requested.passList[i].station.name;
+            DateTime dateTime = requested.passList[k].arrival??DateTime.Now;
+            string departure = dateTime.ToString("t").PadRight(15, ' ');
+            string name = requested.passList[k].station.name;
 
             if (name == null)
             {
@@ -57,19 +64,28 @@ public class Instantiation : MonoBehaviour {
             }
 
             GameObject stopButton = (GameObject)Instantiate(buttonPrefab);
-            stopButton.name = string.Format("{0}", i);
+            stopButton.name = string.Format("{0}", k);
             stopButton.transform.SetParent(buttonPannel.transform);
-            stopButton.transform.GetChild(0).GetComponent<Text>().text = String.Format("  {0}", name);
+
+            stopButton.transform.GetChild(0).GetComponent<Text>().text = String.Format("  ¬ {0}{1}", departure, name);
             stopButton.transform.GetChild(0).GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
-            buttonlist[i] = stopButton;
+
+            stopButton.GetComponent<Button>().interactable = false;
+            stopButton.transform.GetChild(0).GetComponent<Text>().color = new Color(200, 200, 200);
+
+            stoplist[k] = stopButton;
         }
 
         GameObject backButton = (GameObject)Instantiate(buttonPrefab);
-        backButton.name = string.Format("  Back");
+        backButton.name = string.Format("{0}", size);
         backButton.transform.SetParent(buttonPannel.transform);
         backButton.GetComponent<Button>().onClick.AddListener(Start);
-        backButton.transform.GetChild(0).GetComponent<Text>().text = String.Format("  {0}", name);
+
+        backButton.transform.GetChild(0).GetComponent<Text>().text = "  Back";
         backButton.transform.GetChild(0).GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
-        buttonlist[size - 1] = backButton;
+
+        stoplist[size - 1] = backButton;
+
+        Manager.gettext = false;
     } 
 }
