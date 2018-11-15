@@ -907,10 +907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eee2258c653d8242be52d68925f3d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oauthConsumerKey: 0cx5jmH2t2Df4UmFtCH5pP5k0
-  oauthConsumerSecret: O6zJFpSChXl43QDYN0uyg5pxucReZZtmJJPMrDDGbMLpcF6oVF
-  oauthToken: 1060873538998095872-c8ny9bJDXAmUYS6uviPyukrrilAzg0
-  oauthTokenSecret: 7mEj4PWOaEOfODBKa330yLoHI5tmk5qbeCXJz0C24K6em
+  oauthConsumerKey: 
+  oauthConsumerSecret: 
+  oauthToken: 
+  oauthTokenSecret: 
 --- !u!114 &1214774612
 MonoBehaviour:
   m_ObjectHideFlags: 0
