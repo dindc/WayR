@@ -1,12 +1,5 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Net;
 using System;
-using Newtonsoft.Json;
-using System.Globalization;
-using UnityEngine.Networking;
-using System.Collections;
 
 public class Coordinate
 {
@@ -140,47 +133,3 @@ public class RootObject
     public List<Stationboard> stationboard { get; set; }
 }
 
-
-public class Manager : MonoBehaviour
-{
-    public static string departureStation = "Zurich";
-    public string remoteUri = String.Format("http://transport.opendata.ch/v1/stationboard?station={0}&limit=10/stationboard.json", departureStation);
-    private string json = "";
-    public static bool gettext = true;
-    public static int n = 10;
-    public static Stationboard[] destinations = new Stationboard[n];
-
-    private void Start()
-    {
-        StartCoroutine(GetText());
-    }
-
-    IEnumerator GetText()
-    {
-        while (true)
-        {
-            UnityWebRequest www = UnityWebRequest.Get(remoteUri);
-            yield return www.SendWebRequest();
-            json = www.downloadHandler.text;
-            RootObject stationBoard = new RootObject();
-            stationBoard = JsonConvert.DeserializeObject<RootObject>(json);
-
-            if (gettext)
-            {
-                for (int i = 0; i < n; i++)
-                {
-                    string departure = stationBoard.stationboard[i].stop.departure.ToString("t").PadRight(15, ' ');
-                    string platform = stationBoard.stationboard[i].stop.platform;
-                    string destination = stationBoard.stationboard[i].to;
-                    string[] arr = { departure, destination };
-                    string output = string.Join("\t", arr);
-                         
-                    Instantiation.buttonlist[i].GetComponentInChildren<Text>().text = string.Format("  {0}", output);
-                    Instantiation.buttonlist[i].transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}  ", platform);
-                    destinations[i] = stationBoard.stationboard[i];
-                }
-                yield return new WaitForSeconds(10);
-            }   
-        }
-    }
-}
