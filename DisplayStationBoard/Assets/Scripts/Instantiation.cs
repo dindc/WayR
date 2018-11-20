@@ -41,6 +41,21 @@ public class Instantiation : MonoBehaviour {
             buttonlist[i] = button;
         }
 
+        if (destinations[0] != null)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                string departure = destinations[i].stop.departure.ToString("t").PadRight(15, ' ');
+                string platform = destinations[i].stop.platform;
+                string destination = destinations[i].to;
+                string[] arr = { departure, destination };
+                string output = string.Join("\t", arr);
+
+                buttonlist[i].GetComponentInChildren<Text>().text = string.Format("  {0}", output);
+                buttonlist[i].transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}  ", platform);
+            }
+        }
+
         StartCoroutine(GetText());
     }
 
