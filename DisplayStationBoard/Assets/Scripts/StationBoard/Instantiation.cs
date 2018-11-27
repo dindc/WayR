@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using System;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+//using HoloToolkit.Unity.InputModule;
 
 public class Instantiation : MonoBehaviour {
 
@@ -28,6 +28,7 @@ public class Instantiation : MonoBehaviour {
         for (int i = 0; i < n; i++) 
         {
             GameObject button = (GameObject)Instantiate(buttonPrefab);
+            InputManager.Instance.PushFallbackInputHandler(button);
             button.name = string.Format("{0}", i);
             button.transform.SetParent(buttonPannel.transform);
             button.GetComponent<Button>().onClick.AddListener(OnClick);
@@ -72,15 +73,16 @@ public class Instantiation : MonoBehaviour {
         Start();
     }
 
-
-	void OnClick ()
+    public void OnClick ()
     {
+      
+        int num = Int32.Parse(EventSystem.current.currectSelectedGameObject.name);
+
         foreach (var button in buttonlist)
         {
             Destroy(button);
         }
 
-        int num = Int32.Parse(EventSystem.current.currentSelectedGameObject.name);
         Stationboard requested = destinations[num];
 
         int size = requested.passList.Count;
