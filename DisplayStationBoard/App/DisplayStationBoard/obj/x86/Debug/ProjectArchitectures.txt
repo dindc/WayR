@@ -1,0 +1,2 @@
+D:\WayR\DisplayStationBoard\App\DisplayStationBoard\DisplayStationBoard.csproj;x86
+D:\WayR\DisplayStationBoard\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
