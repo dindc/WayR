@@ -123,6 +123,56 @@ public class Instantiation : MonoBehaviour {
         gettext = false;
     }
 
+    void OnSelect()
+    {
+        foreach (var button in buttonlist)
+        {
+            Destroy(button);
+        }
+
+        int num = Int32.Parse(EventSystem.current.currentSelectedGameObject.name);
+        Stationboard requested = destinations[num];
+
+        int size = requested.passList.Count;
+        stoplist = new GameObject[size + 1];
+
+        for (int k = 0; k < size; k++)
+        {
+            DateTime dateTime = requested.passList[k].arrival ?? DateTime.Now;
+            string departure = dateTime.ToString("t").PadRight(15, ' ');
+            string name = requested.passList[k].station.name;
+
+            if (name == null)
+            {
+                name = departureStation;
+            }
+
+            GameObject stopButton = (GameObject)Instantiate(buttonPrefab);
+            stopButton.name = string.Format("{0}", k);
+            stopButton.transform.SetParent(buttonPannel.transform);
+
+            stopButton.transform.GetChild(0).GetComponent<Text>().text = String.Format("  ¬ {0}{1}", departure, name);
+            stopButton.transform.GetChild(0).GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+
+            stopButton.GetComponent<Button>().interactable = false;
+            stopButton.transform.GetChild(0).GetComponent<Text>().color = new Color(200, 200, 200);
+
+            stoplist[k] = stopButton;
+        }
+
+        GameObject backButton = (GameObject)Instantiate(buttonPrefab);
+        backButton.name = string.Format("{0}", size);
+        backButton.transform.SetParent(buttonPannel.transform);
+        backButton.GetComponent<Button>().onClick.AddListener(Back);
+
+        backButton.transform.GetChild(0).GetComponent<Text>().text = "  Back";
+        backButton.transform.GetChild(0).GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+
+        stoplist[size] = backButton;
+
+        gettext = false;
+    }
+
     IEnumerator GetText()
     {
 

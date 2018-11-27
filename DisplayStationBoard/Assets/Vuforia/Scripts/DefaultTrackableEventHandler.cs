@@ -17,7 +17,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
-    public bool check_first_time = true;
+    static bool check_first_time = true;
 
     #endregion // PROTECTED_MEMBER_VARIABLES
 
@@ -48,30 +48,27 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         TrackableBehaviour.Status previousStatus,
         TrackableBehaviour.Status newStatus)
     {
-        if (check_first_time)
+        if (newStatus == TrackableBehaviour.Status.DETECTED ||
+        newStatus == TrackableBehaviour.Status.TRACKED ||
+        newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
-            if (newStatus == TrackableBehaviour.Status.DETECTED ||
-            newStatus == TrackableBehaviour.Status.TRACKED ||
-            newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
-            {
-                Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
-                OnTrackingFound();
-            }
-            else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
-                     newStatus == TrackableBehaviour.Status.NOT_FOUND)
-            {
-                Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
-                OnTrackingLost();
-            }
-            else
-            {
-                // For combo of previousStatus=UNKNOWN + newStatus=UNKNOWN|NOT_FOUND
-                // Vuforia is starting, but tracking has not been lost or found yet
-                // Call OnTrackingLost() to hide the augmentations
-                OnTrackingLost();
-            }
-            check_first_time = false;
+            Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+            OnTrackingFound();
         }
+        else if ((previousStatus == TrackableBehaviour.Status.TRACKED &&
+                 newStatus == TrackableBehaviour.Status.NOT_FOUND) )
+        {
+            Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+           // OnTrackingLost();
+        }
+        else
+        {
+            // For combo of previousStatus=UNKNOWN + newStatus=UNKNOWN|NOT_FOUND
+            // Vuforia is starting, but tracking has not been lost or found yet
+            // Call OnTrackingLost() to hide the augmentations
+            OnTrackingLost();
+        }
+        
     }
 
     #endregion // PUBLIC_METHODS
@@ -80,36 +77,30 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingFound()
     {
-        
-        if (check_first_time)
-        {
-            var rendererComponents = GetComponentsInChildren<Renderer>(true);
-            var colliderComponents = GetComponentsInChildren<Collider>(true);
-            var canvasComponents = GetComponentsInChildren<Canvas>(true);
+    
+    
+        var rendererComponents = GetComponentsInChildren<Renderer>(true);
+        var colliderComponents = GetComponentsInChildren<Collider>(true);
+        var canvasComponents = GetComponentsInChildren<Canvas>(true);
 
-            // Enable rendering:
-            foreach (var component in rendererComponents)
-                component.enabled = true;
+        // Enable rendering:
+        foreach (var component in rendererComponents)
+            component.enabled = true;
 
-            // Enable colliders:
-            foreach (var component in colliderComponents)
-                component.enabled = true;
+        // Enable colliders:
+        foreach (var component in colliderComponents)
+            component.enabled = true;
 
-            // Enable canvas':
-            foreach (var component in canvasComponents)
-                component.enabled = true;
-
-            // disable further tracking
-            check_first_time = false;
-        }
-
+        // Enable canvas':
+        foreach (var component in canvasComponents)
+            component.enabled = true;
         
     }
 
 
     protected virtual void OnTrackingLost()
     {
-        /*
+        
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -125,7 +116,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
-            */
+            
     }
 
     #endregion // PROTECTED_METHODS
