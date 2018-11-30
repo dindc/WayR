@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Display.unity
+- path: Assets/Scenes/Display_billboard.unity
   isLoaded: 1
   isActive: 1

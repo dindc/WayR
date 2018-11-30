@@ -7,7 +7,7 @@ using System;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
 
-public class Instantiation : MonoBehaviour {
+public class Instantiation_old : MonoBehaviour {
 
     public static string departureStation = "Zurich";
     public string remoteUri = String.Format("http://transport.opendata.ch/v1/stationboard?station={0}&limit=10/stationboard.json", departureStation);
