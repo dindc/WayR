@@ -13,6 +13,7 @@ public class Instantiation : MonoBehaviour {
     public string remoteUri = String.Format("http://transport.opendata.ch/v1/stationboard?station={0}&limit=10/stationboard.json", departureStation);
     private string json = "";
     public static bool gettext = true;
+    public static int size;
     public static int n = 10;
     public static Stationboard[] destinations = new Stationboard[n];
 
@@ -70,6 +71,7 @@ public class Instantiation : MonoBehaviour {
         stoplist = new GameObject[0];
         StopAllCoroutines();
         gettext = true;
+        size = 10;
         Start();
     }
 
@@ -85,7 +87,7 @@ public class Instantiation : MonoBehaviour {
 
         Stationboard requested = destinations[num];
 
-        int size = requested.passList.Count;
+        size = requested.passList.Count;
         stoplist = new GameObject[size + 1];
 
         for (int k = 0; k < size; k++)
@@ -121,6 +123,7 @@ public class Instantiation : MonoBehaviour {
         backButton.transform.GetChild(0).GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
 
         stoplist[size] = backButton;
+        size++;
 
         gettext = false;
     }
