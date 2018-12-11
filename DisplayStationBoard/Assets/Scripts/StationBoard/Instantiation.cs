@@ -9,12 +9,14 @@ using UnityEngine.EventSystems;
 
 public class Instantiation : MonoBehaviour {
 
-    public static string departureStation = "Zurich";
-    public string remoteUri = String.Format("http://transport.opendata.ch/v1/stationboard?station={0}&limit=10/stationboard.json", departureStation);
+    private string departureStation;
+    private string remoteUri;
     private string json = "";
     public static bool gettext = true;
     public static int size;
     public static int n = 10;
+    public static Stationboard requested;
+    public static Stationboard pinned;
     public static Stationboard[] destinations = new Stationboard[n];
 
     public GameObject buttonPrefab;
@@ -24,6 +26,8 @@ public class Instantiation : MonoBehaviour {
 
     void Start () {
 
+        departureStation = this.transform.name;
+        remoteUri = String.Format("http://transport.opendata.ch/v1/stationboard?station={0}&limit=10/stationboard.json", departureStation);
         buttonlist = new GameObject[n];
 
         for (int i = 0; i < n; i++) 
@@ -55,6 +59,11 @@ public class Instantiation : MonoBehaviour {
 
                 buttonlist[i].GetComponentInChildren<Text>().text = string.Format("  {0}", output);
                 buttonlist[i].transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}  ", platform);
+
+                if (pinned == destinations[i])
+                {
+                    buttonlist[i].transform.GetChild(0).GetComponent<Text>().color = new Color(200, 200, 200);
+                }
             }
         }
 
@@ -63,6 +72,26 @@ public class Instantiation : MonoBehaviour {
 
     void Back ()
     {
+        foreach (var button in stoplist)
+        {
+            Destroy(button);
+        }
+
+        stoplist = new GameObject[0];
+        StopAllCoroutines();
+        gettext = true;
+        size = 10;
+        Start();
+    }
+
+    void Pin()
+    {
+
+        pinned = requested;
+        DepartureWarning.checkPinned = true;
+        DepartureWarning.platform = requested.stop.platform;
+        DepartureWarning.departureTime = requested.stop.departure;
+
         foreach (var button in stoplist)
         {
             Destroy(button);
@@ -85,10 +114,10 @@ public class Instantiation : MonoBehaviour {
             Destroy(button);
         }
 
-        Stationboard requested = destinations[num];
+        requested = destinations[num];
 
         size = requested.passList.Count;
-        stoplist = new GameObject[size + 1];
+        stoplist = new GameObject[size + 2];
 
         for (int k = 0; k < size; k++)
         {
@@ -123,6 +152,17 @@ public class Instantiation : MonoBehaviour {
         backButton.transform.GetChild(0).GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
 
         stoplist[size] = backButton;
+        size++;
+
+        GameObject pinButton = (GameObject)Instantiate(buttonPrefab);
+        pinButton.name = string.Format("{0}", size);
+        pinButton.transform.SetParent(buttonPannel.transform);
+        pinButton.GetComponent<Button>().onClick.AddListener(Pin);
+
+        pinButton.transform.GetChild(0).GetComponent<Text>().text = "  Pin this train!";
+        pinButton.transform.GetChild(0).GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+
+        stoplist[size] = pinButton;
         size++;
 
         gettext = false;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -350,7 +350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &408119542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a04725c9a525fc4cbcd19895736c7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remoteUri: http://transport.opendata.ch/v1/stationboard?station=Zurich&limit=10/stationboard.json
   buttonPrefab: {fileID: 1261195429235332, guid: 55f27b0b4171d2844ba62f9bf042f61d,
     type: 2}
   buttonPannel: {fileID: 2118093768}
@@ -405,7 +404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &451821423
 Light:
   m_ObjectHideFlags: 0
@@ -893,7 +892,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1213,6 +1212,7 @@ GameObject:
   - component: {fileID: 1179682830}
   - component: {fileID: 1179682834}
   - component: {fileID: 1179682833}
+  - component: {fileID: 1179682835}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1296,6 +1296,20 @@ MonoBehaviour:
   m_Script: {fileID: 1898958984, guid: f7b54ff4a43d4fcf81b4538b678e0bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1179682835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179682829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bc84aa7ec571a499c5a400d8ffc62c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warningPrefab: {fileID: 1583718034572574, guid: ad17b0b74412f49479b99c659e9ec644,
+    type: 2}
+  arCamera: {fileID: 759536586}
 --- !u!1 &1203393766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,8 +1323,9 @@ GameObject:
   - component: {fileID: 1203393769}
   - component: {fileID: 1203393768}
   - component: {fileID: 1203393767}
+  - component: {fileID: 1203393772}
   m_Layer: 0
-  m_Name: ImageTarget_Marker
+  m_Name: Grindelwald
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1399,6 +1414,20 @@ MonoBehaviour:
   mImageTargetType: 0
   mWidth: 0.16200012
   mHeight: 0.109020084
+--- !u!114 &1203393772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1203393766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a04725c9a525fc4cbcd19895736c7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPrefab: {fileID: 1261195429235332, guid: 55f27b0b4171d2844ba62f9bf042f61d,
+    type: 2}
+  buttonPannel: {fileID: 2118093768}
 --- !u!224 &1203393773
 RectTransform:
   m_ObjectHideFlags: 0
