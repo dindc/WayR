@@ -90,6 +90,7 @@ public class Instantiation : MonoBehaviour {
         pinned = requested;
         DepartureWarning.checkPinned = true;
         DepartureWarning.platform = requested.stop.platform;
+        DepartureWarning.destination = requested.to;
         DepartureWarning.departureTime = requested.stop.departure;
 
         foreach (var button in stoplist)

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="lausanne" size="0.210000 0.139913" />
+    <ImageTarget name="grindelwald" size="0.210000 0.140000" />
+    <ImageTarget name="zurich" size="0.210000 0.128625" />
+    <ImageTarget name="marker_WayR_BW_big" size="0.250000 0.176138" />
     <ImageTarget name="marker_WayR_BW" size="0.162000 0.109020" />
     <ImageTarget name="marker_WayR_RGB" size="0.162000 0.109020" />
   </Tracking>
