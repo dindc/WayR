@@ -7,27 +7,42 @@ using System.Collections;
 
 
 public class Main : MonoBehaviour {
-    public TextMesh tweet_object;
+    public TextMesh tweetObject;
+    public static List<string> tweetList = new List<string>();
+    private int nextUpdate = 60;
 
     // Use this for initialization
     void Start () {
         TwitterAPI.instance.UserTimelineTwitter("realdonaldtrump", "extended", UserTimelineResultsCallBack);
+        TwitterAPI.instance.UserTimelineTwitter("tagesanzeiger", "extended", UserTimelineResultsCallBack);
+        TwitterAPI.instance.UserTimelineTwitter("zvv", "extended", UserTimelineResultsCallBack);
+        TwitterAPI.instance.UserTimelineTwitter("reutersworld", "extended", UserTimelineResultsCallBack);
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if (Time.time >= nextUpdate)
+        {
+            nextUpdate = Mathf.FloorToInt(Time.time) + 60;
+            TwitterAPI.instance.UserTimelineTwitter("realdonaldtrump", "extended", UserTimelineResultsCallBack);
+            TwitterAPI.instance.UserTimelineTwitter("tagesanzeiger", "extended", UserTimelineResultsCallBack);
+            TwitterAPI.instance.UserTimelineTwitter("zvv", "extended", UserTimelineResultsCallBack);
+            TwitterAPI.instance.UserTimelineTwitter("reutersworld", "extended", UserTimelineResultsCallBack);
+
+        }
+    }
 
     void UserTimelineResultsCallBack(List<UserTimelineTwitterData> timelineList)
     {
-        string tweets = "FAKE News from the POTUS Donald J. Trump:";
+        string tweets = "";
         foreach (UserTimelineTwitterData twitterData in timelineList)
         {
             tweets = tweets + "\n\n" + ResolveTextSize(twitterData.ToString(), 75, 30);
         }
-        //tweets = ResolveTextSize(tweets, 75, 30);
-        tweet_object.text = tweets;
+
+        tweetList.Add(tweets);
+
     }
 
     // Source: https://answers.unity.com/questions/190800/wrapping-a-textmesh-text.html accessed: 15.11.2018

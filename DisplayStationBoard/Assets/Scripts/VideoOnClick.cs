@@ -4,20 +4,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class VideoOnClick : MonoBehaviour {
-
-    public GameObject go;
-
-    public void OnInputClicked(InputClickedEventData eventData)
+public class VideoOnClick : MonoBehaviour
+{
+    private void Start()
     {
-        var vp = go.GetComponent<VideoPlayer>();
-        if (vp.isPlaying)
+    }
+
+    private void Update()
+    {
+
+        if (Input.GetMouseButtonDown(0))
         {
-            vp.Pause();
-        }
-        else
-        {
-            vp.Play();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.tag == "video")
+                {
+                    VideoPlayer vp = hit.transform.GetComponent<VideoPlayer>();
+                    if (vp.isPlaying)
+                    {
+                        vp.Pause();
+                    }
+                    else
+                    {
+                        vp.Play();
+                    }
+                }
+            }
         }
     }
+    
 }
