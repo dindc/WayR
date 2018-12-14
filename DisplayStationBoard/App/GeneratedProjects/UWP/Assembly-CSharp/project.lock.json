@@ -15853,19 +15853,19 @@
     "UAP,Version=v10.0.10240": []
   },
   "packageFolders": {
-    "C:\\Users\\dindc\\.nuget\\packages\\": {}
+    "C:\\Users\\Pimk\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "D:\\dindc\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\Assembly-CSharp.csproj",
+      "projectUniqueName": "D:\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\Assembly-CSharp.csproj",
       "projectName": "Assembly-CSharp",
-      "projectPath": "D:\\dindc\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\Assembly-CSharp.csproj",
-      "projectJsonPath": "D:\\dindc\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\project.json",
-      "packagesPath": "C:\\Users\\dindc\\.nuget\\packages\\",
-      "outputPath": "D:\\dindc\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\obj\\",
+      "projectPath": "D:\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\Assembly-CSharp.csproj",
+      "projectJsonPath": "D:\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\project.json",
+      "packagesPath": "C:\\Users\\Pimk\\.nuget\\packages\\",
+      "outputPath": "D:\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
-        "C:\\Users\\dindc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pimk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "sources": {

@@ -30,11 +30,16 @@ Data\StreamingAssets\GISLab.xml
 Data\StreamingAssets\Vuforia\GISLab.dat
 Data\StreamingAssets\Vuforia\GISLab.xml
 GpuTiming.dll
+GpuTiming.pdb
 MicStreamSelector.dll
+MicStreamSelector.pdb
 PlaneFinding.dll
+PlaneFinding.pdb
 Properties\Default.rd.xml
 Resource.res
 SharingClient.dll
+SharingClient.pdb
 SpatialUnderstanding.dll
+SpatialUnderstanding.pdb
 Vuforia.dll
 VuforiaWrapper.dll

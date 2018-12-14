@@ -6,11 +6,16 @@ Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 GpuTiming.dll
+GpuTiming.pdb
 MicStreamSelector.dll
+MicStreamSelector.pdb
 PlaneFinding.dll
+PlaneFinding.pdb
 Properties\Default.rd.xml
 Resource.res
 SharingClient.dll
+SharingClient.pdb
 SpatialUnderstanding.dll
+SpatialUnderstanding.pdb
 Vuforia.dll
 VuforiaWrapper.dll

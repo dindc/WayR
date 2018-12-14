@@ -1,6 +1,6 @@
 Metro
 PlayerPath?
-D:/dindc/WayR/DisplayStationBoard/App
+D:/WayR/DisplayStationBoard/App
 SceneListBegin?
 Assets/Scenes/0-Splash.unity
 Assets/Scenes/1-Loading.unity
@@ -276,6 +276,7 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
 b39fddbe4ede4fafe2e1641885144305 Assembly-CSharp.dll:HoloToolkit.Sharing.SharingWorldAnchorManager
 cb3299cc3a2d8ae01f30f501bb96d4cf Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.AttachToController
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TwitterClickHandler
 6f104984604a6ec9b27767e5cbdae14c Assembly-CSharp.dll:.DisplayDependentObjectActivator
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Unity.MRTKEditor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Unity.AudioSourcesReference
@@ -333,6 +334,7 @@ b48597bac756ea53cecb08fc53de8b9f Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.B
 ea52563a1cf29dee5fa63282e48cd038 Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.MeshCursor
 5bbcdf115068cbc700263860c5b9348b Assembly-CSharp.dll:HoloToolkit.Unity.SolverMomentumizer
 6615064b38b6dd0d67ee6d1a687581f4 Assembly-CSharp.dll:HoloToolkit.UX.Progress.ProgressIndicatorOrbsRotator
+e1a7fe1a663260279991b8ad5f72c65f Assembly-CSharp.dll:.MoveObjectToMarker
 653e09ebb70bfbeeaf717decd116b136 Assembly-CSharp.dll:HoloToolkit.Unity.ClipPlane
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -359,6 +361,7 @@ d7abe84a44f6aed10aea7132d8e34f79 Assembly-CSharp.dll:HoloToolkit.Unity.Boundary.
 5affa557520c9b1ad67d2162d963829a Assembly-CSharp.dll:HoloToolkit.UI.Keyboard.UICollection
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DefaultTrackableEventHandler
 7abb7178375991ec6e0fcffd060196e9 Assembly-CSharp.dll:HoloToolkit.Examples.UX.ObjectDisplayScript
+f91b074adbb84143ab1e302ff106ba07 Assembly-CSharp.dll:.DepartureWarning
 b39fddbe4ede4fafe2e1641885144305 Assembly-CSharp.dll:HoloToolkit.Unity.WorldAnchorManager
 149f5f6ff9877e1760e88054c331199f Assembly-CSharp.dll:HoloToolkit.Unity.SpatialMapping.RemoteMappingManager
 62ef55481db9f7a1a36f5be8eca08b0e Assembly-CSharp.dll:HoloToolkit.UX.ToolTips.ToolTipSpawner
@@ -400,7 +403,7 @@ e8ba2e453aff9cf5487189ad115348c5 Assembly-CSharp.dll:HoloToolkit.Unity.UX.Distor
 4359ad7c5b190e7c5fd06955c3d79519 Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.SpeechInputHandler
 8644983781391a1a0c05940eaa565fef Assembly-CSharp.dll:HoloToolkit.Unity.SpatialMapping.RemoteMeshSource
 bf32e4c941fcd4078b3b322bed30732a Assembly-CSharp.dll:HoloToolkit.Unity.UX.BoundingBoxGizmoShell
-9fe0aab49ea9f29c5852ed7784a2a40b Assembly-CSharp.dll:.Instantiation
+79b1ca20f0249c96f007e6262ab8cdd3 Assembly-CSharp.dll:.Instantiation
 ac80fcaace31dfd3ed996cbb813a4263 Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.CompoundButtonMesh
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 4c81c8962ca9c4dfc6f330235be37fe9 Assembly-CSharp.dll:HoloToolkit.Sharing.Utilities.DirectPairing
@@ -516,4 +519,3 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TwitterClickHandler
