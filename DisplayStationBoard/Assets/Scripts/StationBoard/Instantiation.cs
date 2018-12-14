@@ -57,11 +57,18 @@ public class Instantiation : MonoBehaviour {
                 string destination = destinations[i].to;
                 string name = destinations[i].name;
                 string[] arr = { departure, destination };
-                string output = string.Join("\t", arr);
+                string output = string.Join("                            ", arr);
 
                 buttonlist[i].GetComponentInChildren<Text>().text = string.Format("  {0}", output);
                 buttonlist[i].transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}  ", platform);
                 buttonlist[i].transform.GetChild(2).GetComponent<Text>().text = string.Format("                     {0}", name);
+
+                if (pinned.name == name)
+                {
+                    var colors = buttonlist[i].GetComponent<Button>().colors;
+                    colors.normalColor = Color.green;
+                    buttonlist[i].GetComponent<Button>().colors = colors;
+                }
             }
         }
         StartCoroutine(GetText());
@@ -194,6 +201,21 @@ public class Instantiation : MonoBehaviour {
                     Instantiation.buttonlist[i].transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}  ", platform);
                     Instantiation.buttonlist[i].transform.GetChild(2).GetComponent<Text>().text = string.Format("                     {0}", name);
                     destinations[i] = stationBoard.stationboard[i];
+
+                    if (pinned != null)
+                    {
+                        if (pinned.name == name)
+                        {
+                            var colors = buttonlist[i].GetComponent<Button>().colors;
+                            colors.normalColor = Color.green;
+                            buttonlist[i].GetComponent<Button>().colors = colors;
+                        } else
+                        {
+                            var colors = buttonlist[i].GetComponent<Button>().colors;
+                            colors.normalColor = new Color32(0xF6, 0xF8, 0xFF, 0xFF);
+                            buttonlist[i].GetComponent<Button>().colors = colors;
+                        }
+                    }
                 }
                 yield return new WaitForSeconds(10);
             }

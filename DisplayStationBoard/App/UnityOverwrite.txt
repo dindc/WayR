@@ -5,9 +5,9 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-DisplayStationBoard.sln: 9B8F38F2F4C89D3A33DC1BFE3FB85DB2
+DisplayStationBoard.sln: modified
 DisplayStationBoard\App.cs: modified
-DisplayStationBoard\DisplayStationBoard.csproj: 83B7FDD0AA961D4D481830A7B97936D3
+DisplayStationBoard\DisplayStationBoard.csproj: A1734DB400F8E1FCF23CC1562E58BAC0
 DisplayStationBoard\DisplayStationBoard.csproj.user: modified
 DisplayStationBoard\Package.appxmanifest: 8D102579392215EECB163E6705E31FD6
 DisplayStationBoard\project.json: 1D02BC64BAC0D041019673A1C4C51737
