@@ -59,15 +59,22 @@ public class Instantiation : MonoBehaviour {
                 string[] arr = { departure, destination };
                 string output = string.Join("                            ", arr);
 
+                buttonlist[i].GetComponentInChildren<Text>().color = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
+                buttonlist[i].transform.GetChild(1).GetComponent<Text>().color = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
+                buttonlist[i].transform.GetChild(2).GetComponent<Text>().color = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
+
                 buttonlist[i].GetComponentInChildren<Text>().text = string.Format("  {0}", output);
                 buttonlist[i].transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}  ", platform);
                 buttonlist[i].transform.GetChild(2).GetComponent<Text>().text = string.Format("                     {0}", name);
 
-                if (pinned.name == name)
+                if (pinned != null)
                 {
-                    var colors = buttonlist[i].GetComponent<Button>().colors;
-                    colors.normalColor = Color.green;
-                    buttonlist[i].GetComponent<Button>().colors = colors;
+                    if (pinned.name == name)
+                    {
+                        var colors = buttonlist[i].GetComponent<Button>().colors;
+                        colors.normalColor = Color.green;
+                        buttonlist[i].GetComponent<Button>().colors = colors;
+                    }
                 }
             }
         }
@@ -145,7 +152,8 @@ public class Instantiation : MonoBehaviour {
             var colors = stopButton.GetComponent<Button>().colors;
             colors.normalColor = Color.grey;
             stopButton.GetComponent<Button>().colors = colors;
-            stopButton.transform.GetChild(0).GetComponent<Text>().color = new Color(200, 200, 200);
+
+            stopButton.transform.GetChild(0).GetComponent<Text>().color = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
 
             stoplist[k] = stopButton;
         }
@@ -201,6 +209,10 @@ public class Instantiation : MonoBehaviour {
                     Instantiation.buttonlist[i].transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}  ", platform);
                     Instantiation.buttonlist[i].transform.GetChild(2).GetComponent<Text>().text = string.Format("                     {0}", name);
                     destinations[i] = stationBoard.stationboard[i];
+
+                    buttonlist[i].transform.GetChild(1).GetComponent<Text>().color = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
+                    buttonlist[i].transform.GetChild(2).GetComponent<Text>().color = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
+                    buttonlist[i].GetComponentInChildren<Text>().color = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
 
                     if (pinned != null)
                     {

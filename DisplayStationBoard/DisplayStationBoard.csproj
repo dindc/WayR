@@ -263,7 +263,6 @@
     <Compile Include="Assets\Common\SplashAbout\LoadingScreen.cs" />
     <Compile Include="Assets\Common\TapHandler.cs" />
     <Compile Include="Assets\Common\TrackableSettings.cs" />
-    <Compile Include="Assets\GazeUI For Canvas\Scripts\UI\EyeRaycaster.cs" />
     <Compile Include="Assets\HoloToolkit\Boundary\Scripts\BoundaryManager.cs" />
     <Compile Include="Assets\HoloToolkit\Boundary\Scripts\Edge.cs" />
     <Compile Include="Assets\HoloToolkit\Boundary\Scripts\EdgeHelpers.cs" />
@@ -781,9 +780,7 @@
     <Compile Include="Assets\Scripts\StationBoard\ButtonClick.cs" />
     <Compile Include="Assets\Scripts\StationBoard\DepartureWarning.cs" />
     <Compile Include="Assets\Scripts\StationBoard\Instantiation.cs" />
-    <Compile Include="Assets\Scripts\StationBoard\Instantiation_old.cs" />
     <Compile Include="Assets\Scripts\StationBoard\Manager.cs" />
-    <Compile Include="Assets\Scripts\StationBoard\OnClickWrong.cs" />
     <Compile Include="Assets\Scripts\StationBoard\PlaneScaler.cs" />
     <Compile Include="Assets\Scripts\Twitter\Main.cs" />
     <Compile Include="Assets\Scripts\Twitter\MiniJSON.cs" />
@@ -797,7 +794,6 @@
     <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\GazeUI For Canvas\ReadMe.txt" />
     <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\BlinnPhongConfigurable.cginc" />
     <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\BlinnPhongConfigurable.shader" />
     <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\BlinnPhongConfigurableTransparent.shader" />
