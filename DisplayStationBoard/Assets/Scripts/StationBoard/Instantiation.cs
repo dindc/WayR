@@ -74,6 +74,11 @@ public class Instantiation : MonoBehaviour {
                         var colors = buttonlist[i].GetComponent<Button>().colors;
                         colors.normalColor = Color.green;
                         buttonlist[i].GetComponent<Button>().colors = colors;
+                    } else
+                    {
+                        var colors = buttonlist[i].GetComponent<Button>().colors;
+                        colors.normalColor = new Color32(0x78, 0xA7, 0xBA, 0xFF);
+                        buttonlist[i].GetComponent<Button>().colors = colors;
                     }
                 }
             }
@@ -224,7 +229,7 @@ public class Instantiation : MonoBehaviour {
                         } else
                         {
                             var colors = buttonlist[i].GetComponent<Button>().colors;
-                            colors.normalColor = new Color32(0xF6, 0xF8, 0xFF, 0xFF);
+                            colors.normalColor = new Color32(0x78, 0xA7, 0xBA, 0xFF);
                             buttonlist[i].GetComponent<Button>().colors = colors;
                         }
                     }
