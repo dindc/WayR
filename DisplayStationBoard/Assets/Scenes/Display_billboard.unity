@@ -765,6 +765,11 @@ MonoBehaviour:
   tweetPanel: {fileID: 1437903479}
   tweetPrefab: {fileID: 1261195429235332, guid: 69aa464141b76ec438e1941b536938b6,
     type: 2}
+  tweetbuttonlist:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!102 &540896083
 TextMesh:
   serializedVersion: 3
@@ -1907,7 +1912,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1437903479}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.965}
+  m_LocalPosition: {x: 0, y: 0, z: 0.771}
   m_LocalScale: {x: 0.0032, y: 0.006000008, z: 0.006000008}
   m_Children: []
   m_Father: {fileID: 129970992}
@@ -1915,7 +1920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 48.821, y: 50}
+  m_AnchoredPosition: {x: 49.085, y: 50}
   m_SizeDelta: {x: 700, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1437903481
@@ -2004,7 +2009,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: -47.22
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
