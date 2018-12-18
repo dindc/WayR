@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class TwitterClickHandler : MonoBehaviour
 {
+    public GameObject tweetPanel;
+    public GameObject tweetPrefab;
     private TextMesh textObject;
 
     public void Start()
@@ -19,6 +21,8 @@ public class TwitterClickHandler : MonoBehaviour
             {
                 case "trump":
                     textObject.text = Main.tweetList[0];
+
+                    //updateButtons(Main.alltweets[0]);
                     break;
                 case "tagesanzeiger":
                     textObject.text = Main.tweetList[1];
@@ -30,5 +34,15 @@ public class TwitterClickHandler : MonoBehaviour
                     textObject.text = Main.tweetList[3];
                     break;
             }
+    }
+
+    void updateButtons (List<string> alltweets)
+    {
+        for (int i = 0; i < Main.alltweets.Count; i++)
+        {
+            GameObject button = (GameObject)Instantiate(tweetPrefab);
+            button.name = string.Format("{0}", i);
+            button.transform.SetParent(tweetPanel.transform);
+        }
     }
 }

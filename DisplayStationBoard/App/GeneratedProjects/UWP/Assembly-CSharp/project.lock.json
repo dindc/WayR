@@ -15853,7 +15853,7 @@
     "UAP,Version=v10.0.10240": []
   },
   "packageFolders": {
-    "C:\\Users\\Pimk\\.nuget\\packages\\": {}
+    "C:\\Users\\dindc\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
@@ -15861,11 +15861,11 @@
       "projectName": "Assembly-CSharp",
       "projectPath": "D:\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\Assembly-CSharp.csproj",
       "projectJsonPath": "D:\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\project.json",
-      "packagesPath": "C:\\Users\\Pimk\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\dindc\\.nuget\\packages\\",
       "outputPath": "D:\\WayR\\DisplayStationBoard\\App\\GeneratedProjects\\UWP\\Assembly-CSharp\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
-        "C:\\Users\\Pimk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dindc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "sources": {

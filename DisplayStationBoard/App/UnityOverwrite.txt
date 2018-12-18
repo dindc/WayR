@@ -7,7 +7,7 @@
 # Default behavior is to never overwrite files
 DisplayStationBoard.sln: modified
 DisplayStationBoard\App.cs: modified
-DisplayStationBoard\DisplayStationBoard.csproj: A1734DB400F8E1FCF23CC1562E58BAC0
+DisplayStationBoard\DisplayStationBoard.csproj: 48807BF3635BAF53507822AA96088792
 DisplayStationBoard\DisplayStationBoard.csproj.user: modified
 DisplayStationBoard\Package.appxmanifest: 8D102579392215EECB163E6705E31FD6
 DisplayStationBoard\project.json: 1D02BC64BAC0D041019673A1C4C51737

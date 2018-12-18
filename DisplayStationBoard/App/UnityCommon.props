@@ -2,7 +2,7 @@
     <PropertyGroup>
         <UnityWSASolutionName>DisplayStationBoard</UnityWSASolutionName>
         <UnityWSASolutionDir>D:\WayR\DisplayStationBoard\App\</UnityWSASolutionDir>
-        <UnityProjectDir>D:\WayR\DisplayStationBoard\</UnityProjectDir>
+        <UnityProjectDir>D:\students\dindc\DisplayStationBoard\</UnityProjectDir>
         <UnityWSAPlayerDir>C:\Program Files\Unity\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
         <UnityWSAToolsDir>$(UnityWSASolutionDir)Unity\Tools\</UnityWSAToolsDir>
     </PropertyGroup>
